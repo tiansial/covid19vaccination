@@ -12,6 +12,7 @@
         />
       </div>
     </div>
+
     <div class="bg-white px-10 py-10 lg:p-20">
       <ul>
         <li v-for="(country, index) in filteredLocations" :key="index">
@@ -83,9 +84,7 @@ export default {
     },
     getData() {
       axios
-        .get(
-          "https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/latest/owid-covid-latest.json"
-        )
+        .get("https://sheetdb.io/api/v1/56ppwx6eq7wfi")
         .then(response => {
           // handle success
           this.data = response.data;
