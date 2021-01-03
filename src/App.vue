@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto py-10 lg:pt-20 lg:pb-5">
+  <div>
     <Header />
     <Data />
     <Footer />
@@ -23,6 +23,11 @@ export default {
 
 <style>
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+
+input:focus {
+  outline: 0;
+  box-shadow: none;
 }
 </style>
