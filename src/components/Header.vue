@@ -38,7 +38,7 @@ export default {
   name: "Header",
   computed: {
     countriesNumber() {
-      return this.$store.state.countries.length - 1;
+      return Object.keys(this.$store.state.countries).length - 1;
     }
   }
 };
