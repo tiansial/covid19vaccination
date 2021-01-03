@@ -5,7 +5,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    countries: []
+    countries: [],
+    isLoading: true
   },
   actions: {
     getCountries({ commit }) {
@@ -19,6 +20,7 @@ export default new Vuex.Store({
         .then(res => res.json())
         .then(res => {
           commit("SET_COUNTRIES", res);
+          this.state.isLoading = false;
         })
         .catch(console.error.bind(console));
     }

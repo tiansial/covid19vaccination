@@ -57,6 +57,8 @@
       </div>
     </div>
 
+    <Loading v-if="this.$store.state.isLoading" />
+
     <div class="bg-white px-10 py-10 lg:p-20">
       <ul>
         <li v-for="(country, index) in filteredLocations" :key="index">
@@ -105,15 +107,17 @@
 </template>
 
 <script>
+import Loading from "./Loading";
 import _ from "lodash";
 
 export default {
+  components: {
+    Loading
+  },
   name: "Data",
   data() {
     return {
-      search: "",
-      data: {},
-      sortAsc: true
+      search: ""
     };
   },
   methods: {
