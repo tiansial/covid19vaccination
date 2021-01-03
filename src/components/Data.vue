@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container relative z-10">
     <div class="grid grid-cols-8 gap-2">
       <div
         class="col-start-2 col-span-6 -mt-9 mb-20 px-10 lg:px-64 flex items-center"
@@ -62,13 +62,20 @@
     <div class="bg-white px-10 py-10 lg:p-20">
       <ul>
         <li v-for="(country, index) in filteredLocations" :key="index">
-          <div class="mb-14" v-if="country.total_vaccinations">
-            <span class="block mb-1 text-uppercase font-bold text-s">
-              {{ country.location }}
-              <span class="font-normal text-xs">
-                - {{ numberWithCommas(country.total_cases) }} cases
+          <div class="mb-14 " v-if="country.total_vaccinations">
+            <div class="flex items-center mb-3">
+              <img
+                class="w-8 h-auto mr-3"
+                v-if="country.iso"
+                :src="`${publicPath + 'svg/' + country.iso}.svg`"
+              />
+              <span class="block text-uppercase font-bold text-s">
+                {{ country.location }}
+                <span class="font-normal text-xs">
+                  - {{ numberWithCommas(country.total_cases) }} cases
+                </span>
               </span>
-            </span>
+            </div>
             <div class="flex items-center">
               <span
                 class="font-bold text-xs block mr-4"
@@ -117,6 +124,7 @@ export default {
   name: "Data",
   data() {
     return {
+      publicPath: process.env.BASE_URL,
       search: ""
     };
   },

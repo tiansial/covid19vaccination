@@ -8,7 +8,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "country-iso-3-to-2": "^1.1.0",
     "lodash": "^4.17.20",
     "normalize.css": "^8.0.1",
     "vue": "^2.6.11"
