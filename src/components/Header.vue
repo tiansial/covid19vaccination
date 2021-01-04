@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-brand py-10 lg:pt-12 lg:pb-48 relative">
+  <div class="bg-brand py-10 pb-20 lg:pt-12 lg:pb-48 px-6 lg:px-0 relative">
     <div class="container">
       <svg
         class="w-12 lg:mr-3 mb-4 lg:mb-0"
@@ -21,20 +21,20 @@
         />
       </svg>
 
-      <h1 class="text-white mt-20 text-6xl font-serif">
+      <h1 class="text-white mt-8 lg:mt-20 text-4xl lg:text-6xl font-serif">
         <span class="text-beige">COVID-19</span> Vaccination Status
       </h1>
 
-      <p class="text-white text-lg mt-6">
+      <p class="text-white text-md lg:text-lg mt-6">
         The world stats for the Coronavirus (COVID-19) vaccination,<br />an
         ongoing process in {{ countriesNumber }} countries around the world.
       </p>
-      <span class="block mt-16 text-white text-2xl font-serif">
+      <span class="block mt-8 lg:mt-16 text-white text-2xl font-serif">
         {{ this.$store.state.world.total_vaccinations_per_hundred }}% of world
         population is currently vaccinated
       </span>
       <svg
-        class="absolute top-1/2 transform -translate-y-1/2 right-0 h-3/4"
+        class="hidden lg:block absolute top-1/2 transform -translate-y-1/2 right-0 h-3/4"
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
         width="807.85972"

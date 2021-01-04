@@ -2,7 +2,7 @@
   <div class="container relative z-10">
     <div class="grid grid-cols-8 gap-2">
       <div
-        class="col-start-2 col-span-6 -mt-9 mb-20 px-10 lg:px-64 flex items-center"
+        class="lg:col-start-2 col-span-8 lg:col-span-6 -mt-9 mb-10 lg:mb-20 px-3 lg:px-64 flex items-center"
       >
         <div
           class="bg-white flex items-stretch w-full shadow-md rounded-md overflow-hidden"
@@ -31,11 +31,11 @@
               />
             </div>
           </div>
-          <div class="w-40 relative items-center justify-center">
+          <div class="w-32 lg:w-40 relative items-center justify-center">
             <div
               class="bg-gray-300 w-0.5 h-8 absolute top-1/2 transform -translate-y-1/2 items-center"
             ></div>
-            <div class="flex items-center h-full ml-4 cursor-pointer">
+            <div class="flex items-center h-full ml-2 lg:ml-4 cursor-pointer">
               <svg
                 class="w-6 stroke-current text-gray-400 pointer-events-none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@
                   d="M8 9l4-4 4 4m0 6l-4 4-4-4"
                 />
               </svg>
-              <span class="block ml-4 pointer-events-none">Order</span>
+              <span class="block ml-2 lg:ml-4 pointer-events-none">Order</span>
             </div>
           </div>
         </div>
