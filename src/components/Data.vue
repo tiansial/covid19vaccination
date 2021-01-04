@@ -31,7 +31,7 @@
               />
             </div>
           </div>
-          <div class="w-32 lg:w-40 relative items-center justify-center">
+          <div class="w-36 lg:w-40 relative items-center justify-center">
             <div
               class="bg-gray-300 w-0.5 h-8 absolute top-1/2 transform -translate-y-1/2 items-center"
             ></div>
@@ -50,7 +50,9 @@
                   d="M8 9l4-4 4 4m0 6l-4 4-4-4"
                 />
               </svg>
-              <span class="block ml-2 lg:ml-4 pointer-events-none">Order</span>
+              <span class="block ml-2 lg:ml-4 pointer-events-none text-sm"
+                >Order</span
+              >
             </div>
           </div>
         </div>
