@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import getCountryISO2 from "country-iso-3-to-2";
-// const getCountryISO2 = require("country-iso-3-to-2");
+import _ from "lodash";
 
 Vue.use(Vuex);
 
@@ -41,6 +41,24 @@ export default new Vuex.Store({
   mutations: {
     SET_COUNTRIES(state, countries) {
       state.countries = countries;
+    },
+    sortCountries(state, sortKey) {
+      console.log("running mutation");
+      const countries = this.state.countries;
+      _.orderBy(countries, sortKey, "desc");
+      // countries.sort((a, b) => {
+      //   let compare = 0;
+      //   if (a[sortKey] > b[sortKey]) {
+      //     compare = 1;
+      //   } else if (b[sortKey] > a[sortKey]) {
+      //     compare = -1;
+      //   }
+      //   return compare;
+      // });
+      state.countries = countries;
     }
+  },
+  getters: {
+    countries: state => state.countries
   }
 });

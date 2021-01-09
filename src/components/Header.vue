@@ -22,17 +22,36 @@
       </svg>
 
       <h1 class="text-white mt-8 lg:mt-20 text-4xl lg:text-6xl font-serif">
-        <span class="text-beige">COVID-19</span> Vaccination Status
+        <span class="text-beige">COVID-19<br /></span> Vaccination Status
       </h1>
 
       <p class="text-white text-md lg:text-lg mt-6">
         The world stats for the Coronavirus (COVID-19) vaccination,<br />an
         ongoing process in {{ countriesNumber }} countries around the world.
       </p>
-      <span class="block mt-8 lg:mt-16 text-white text-2xl font-serif">
-        {{ this.$store.state.world.total_vaccinations_per_hundred }}% of world
-        population is currently vaccinated
-      </span>
+      <div
+        class="flex items-center mt-8 lg:mt-16 text-white text-2xl font-serif"
+      >
+        <svg viewBox="0 0 36 36" class="circular-chart green hidden md:block">
+          <path
+            class="circle-bg"
+            d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <path
+            class="circle"
+            :stroke-dasharray="worldVaccinatedPercentage"
+            d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+        </svg>
+        <span class="block md:ml-4">
+          {{ this.$store.state.world.total_vaccinations_per_hundred }}% of world
+          population is currently vaccinated
+        </span>
+      </div>
       <svg
         class="hidden lg:block absolute top-1/2 transform -translate-y-1/2 right-0 h-3/4"
         data-name="Layer 1"
@@ -239,9 +258,55 @@ export default {
   computed: {
     countriesNumber() {
       return Object.keys(this.$store.state.countries).length;
+    },
+    worldVaccinatedPercentage() {
+      return `${this.$store.state.world.total_vaccinations_per_hundred}, 100`;
     }
   }
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.circular-chart {
+  width: 50px;
+  max-width: 50px;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+.circular-chart.orange .circle {
+  stroke: #ff9f00;
+}
+
+.circular-chart.green .circle {
+  stroke: #4cc790;
+}
+
+.circular-chart.blue .circle {
+  stroke: #3c9ee5;
+}
+
+.percentage {
+  fill: #666;
+  font-family: sans-serif;
+  font-size: 0.5em;
+  text-anchor: middle;
+}
+</style>
