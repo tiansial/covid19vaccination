@@ -107,7 +107,7 @@
             <div
               class="relative overflow-hidden flex items-center justify-center block rounded-md mt-4 w-full h-10 bg-gray-200"
             >
-              <span class="block">
+              <span class="relative block z-10">
                 {{ country.total_vaccinations_per_hundred }}%
               </span>
               <div
