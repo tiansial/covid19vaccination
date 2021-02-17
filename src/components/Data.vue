@@ -113,7 +113,7 @@
               <div
                 class="absolute left-0 top-0 h-full bg-green-500"
                 :style="{
-                  width: country.total_vaccinations_per_hundred + '%'
+                  width: country.total_vaccinations_per_hundred + '%',
                 }"
               ></div>
             </div>
@@ -130,7 +130,7 @@ import _ from "lodash";
 
 export default {
   components: {
-    Loading
+    Loading,
   },
   name: "Data",
   data() {
@@ -140,36 +140,37 @@ export default {
         {
           name: "total_vaccinations_per_hundred",
           label: "Vaccinations per hundred",
-          order: "desc"
+          order: "desc",
         },
         {
           name: "gdp_per_capita",
           label: "GDP per capita",
-          order: "desc"
+          order: "desc",
         },
         {
           name: "population",
           label: "Population",
-          order: "desc"
-        }
+          order: "desc",
+        },
       ],
       publicPath: process.env.BASE_URL,
       search: "",
       sort: {
         property: "total_vaccinations_per_hundred",
-        order: "desc"
-      }
+        order: "desc",
+      },
     };
   },
   methods: {
     numberWithCommas(x) {
+      if (!Number.isInteger(x)) return;
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
     sortBy(property, order, index) {
       this.activeFilterIndex = index;
       this.sort.property = property;
       this.sort.order = order;
-    }
+    },
   },
   computed: {
     countries() {
@@ -177,17 +178,17 @@ export default {
       return _.orderBy(countries, this.sort.property, this.sort.order);
     },
     filteredLocations() {
-      let filteredData = Object.values(this.countries).filter(item => {
+      let filteredData = Object.values(this.countries).filter((item) => {
         return (
           item.location.toLowerCase().indexOf(this.search.toLowerCase()) > -1
         );
       });
 
       return filteredData;
-    }
+    },
   },
   mounted() {
     this.$store.dispatch("getCountries");
-  }
+  },
 };
 </script>
