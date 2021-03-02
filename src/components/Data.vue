@@ -72,7 +72,7 @@
         <li v-for="(country, index) in filteredLocations" :key="index">
           <div
             :class="{ 'mb-14': index != filteredLocations.length - 1 }"
-            v-if="country.total_vaccinations"
+            v-if="country.people_fully_vaccinated_per_hundred"
           >
             <div class="flex items-center mb-3">
               <img
@@ -108,12 +108,18 @@
               class="relative overflow-hidden flex items-center justify-center block rounded-md mt-4 w-full h-10 bg-gray-200"
             >
               <span class="relative block z-10">
-                {{ country.total_vaccinations_per_hundred }}%
+                {{ country.people_fully_vaccinated_per_hundred }}%
               </span>
+              <div
+                class="absolute left-0 top-0 h-full bg-green-200"
+                :style="{
+                  width: country.people_vaccinated_per_hundred + '%',
+                }"
+              ></div>
               <div
                 class="absolute left-0 top-0 h-full bg-green-500"
                 :style="{
-                  width: country.total_vaccinations_per_hundred + '%',
+                  width: country.people_fully_vaccinated_per_hundred + '%',
                 }"
               ></div>
             </div>
@@ -138,8 +144,8 @@ export default {
       activeFilterIndex: 0,
       filters: [
         {
-          name: "total_vaccinations_per_hundred",
-          label: "Vaccinations per hundred",
+          name: "people_fully_vaccinated_per_hundred",
+          label: "People fully vaccinated",
           order: "desc",
         },
         {
@@ -156,7 +162,7 @@ export default {
       publicPath: process.env.BASE_URL,
       search: "",
       sort: {
-        property: "total_vaccinations_per_hundred",
+        property: "people_fully_vaccinated_per_hundred",
         order: "desc",
       },
     };
